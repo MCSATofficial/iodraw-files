@@ -119,13 +119,13 @@
           <mxGeometry x="550" y="-40" width="500" height="30" as="geometry" />
         </mxCell>
         <mxCell id="subtitle" value="Dual-Branch Asymmetric Feature Fusion with Spatial Attention" style="text;html=1;align=center;fontSize=11;fontColor=#666;" parent="1" vertex="1">
-          <mxGeometry x="600" y="28" width="400" height="18" as="geometry" />
+          <mxGeometry x="600" y="-18" width="400" height="18" as="geometry" />
         </mxCell>
         <mxCell id="params_box" value="Total Params: 2.53M  |  MobileNetV2: 2.26M  |  CNN Branch: 0.03M  |  Head: 0.18M" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#546E7A;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="510" y="790" width="580" height="32" as="geometry" />
         </mxCell>
         <mxCell id="label_in" value="Input" style="text;html=1;align=center;fontSize=9;fontColor=#1565C0;fontStyle=1;" parent="1" vertex="1">
-          <mxGeometry x="770" y="16" width="60" height="14" as="geometry" />
+          <mxGeometry x="770" y="10" width="60" height="14" as="geometry" />
         </mxCell>
         <mxCell id="e14" value="" style="endArrow=none;html=1;strokeWidth=1;strokeColor=#1565C0;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" parent="1" source="box_input" target="label_in" edge="1">
           <mxGeometry relative="1" as="geometry" />
