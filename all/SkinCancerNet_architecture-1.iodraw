@@ -14,7 +14,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="feat_label" value="7x7x1280 Feature Map" style="text;html=1;align=center;fontSize=9;fontColor=#888;" parent="1" vertex="1">
-          <mxGeometry x="1060" y="180" width="140" height="18" as="geometry" />
+          <mxGeometry x="1080" y="170" width="140" height="18" as="geometry" />
         </mxCell>
         <mxCell id="box_att" value="SpatialAttention&lt;br&gt;AvgPool + MaxPool on Channel&lt;br&gt;Conv2D(1, 7x7, Sigmoid)&lt;br&gt;Element-wise Multiply" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C62828;fontSize=10;fontStyle=1;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="1070" y="212" width="240" height="75" as="geometry" />
@@ -23,7 +23,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="box_gap1" value="GlobalAveragePooling2D&lt;br&gt;1280-dim Vector" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=11;fontStyle=1;" parent="1" vertex="1">
-          <mxGeometry x="1090" y="342" width="200" height="48" as="geometry" />
+          <mxGeometry x="1090" y="320" width="200" height="48" as="geometry" />
         </mxCell>
         <mxCell id="e3" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;" parent="1" source="box_att" target="box_gap1" edge="1">
           <mxGeometry relative="1" as="geometry" />
