@@ -133,7 +133,7 @@
         <mxCell id="params_box" value="Total Params: 2.53M  |  MobileNetV2: 2.26M  |  CNN Branch: 0.03M  |  Head: 0.18M" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#546E7A;fontSize=10;" parent="1" vertex="1">
           <mxGeometry x="510" y="790" width="580" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="label_in" value="Input" style="text;html=1;align=center;fontSize=9;fontColor=#1565C0;fontStyle=1;" parent="1" vertex="1">
+        <mxCell id="label_in" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Input&lt;/font&gt;" style="text;html=1;align=center;fontSize=9;fontColor=#1565C0;fontStyle=1;" parent="1" vertex="1">
           <mxGeometry x="770" width="60" height="14" as="geometry" />
         </mxCell>
         <mxCell id="e14" value="" style="endArrow=none;html=1;strokeWidth=1;strokeColor=#1565C0;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" parent="1" source="box_input" target="label_in" edge="1">
