@@ -34,7 +34,7 @@
         <mxCell id="e4" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#2E7D32;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="box_input" target="box_c1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="137" y="110" />
+              <mxPoint x="520" y="90" />
             </Array>
           </mxGeometry>
         </mxCell>
