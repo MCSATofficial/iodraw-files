@@ -152,7 +152,7 @@
         <mxCell id="8cifDf2JSR7yX3q1dD8H-2" value="输入图像&lt;br&gt;224x224x3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=13;arcSize=12;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
           <mxGeometry x="715" y="30" width="170" height="55" as="geometry" />
         </mxCell>
-        <mxCell id="8cifDf2JSR7yX3q1dD8H-3" value="MobileNetV2&lt;br&gt;(ImageNet Pretrained)&lt;br&gt;alpha=1.0, include_top=False" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=12;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
+        <mxCell id="8cifDf2JSR7yX3q1dD8H-3" value="MobileNetV2&lt;br&gt;(预训练网络模型)&lt;br&gt;alpha=1.0, include_top=False" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=12;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
           <mxGeometry x="890" y="113" width="220" height="60" as="geometry" />
         </mxCell>
         <mxCell id="8cifDf2JSR7yX3q1dD8H-4" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#E65100;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="8cifDf2JSR7yX3q1dD8H-1" source="8cifDf2JSR7yX3q1dD8H-2" target="8cifDf2JSR7yX3q1dD8H-3">
