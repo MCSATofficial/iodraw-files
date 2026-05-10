@@ -124,7 +124,7 @@
           <mxGeometry x="680" y="545" width="240" height="215" as="geometry" />
         </mxCell>
         <mxCell id="lbl_head" value="Classifier Head" style="text;html=1;align=center;fontSize=10;fontColor=#F57F17;fontStyle=1;" parent="1" vertex="1">
-          <mxGeometry x="740" y="515" width="120" height="18" as="geometry" />
+          <mxGeometry x="695" y="515" width="120" height="18" as="geometry" />
         </mxCell>
         <mxCell id="title" value="SkinCancerNet Model Architecture" style="text;html=1;align=center;fontSize=18;fontStyle=1;" parent="1" vertex="1">
           <mxGeometry x="550" y="-90" width="500" height="30" as="geometry" />
