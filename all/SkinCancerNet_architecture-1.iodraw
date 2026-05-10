@@ -10,7 +10,7 @@
         <mxCell id="box_mbv2" value="MobileNetV2&lt;br&gt;(ImageNet Pretrained)&lt;br&gt;alpha=1.0, include_top=False" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=12;fontStyle=1;" parent="1" vertex="1">
           <mxGeometry x="890" y="113" width="220" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="e1" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="box_input" target="box_mbv2" edge="1">
+        <mxCell id="e1" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#E65100;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="box_input" target="box_mbv2" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1000" y="58" />
@@ -107,7 +107,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="rect_br1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#E65100;strokeWidth=2;dashed=1;opacity=30;" parent="1" vertex="1">
-          <mxGeometry x="1150" y="60" width="280" height="292" as="geometry" />
+          <mxGeometry x="860" y="103" width="280" height="292" as="geometry" />
         </mxCell>
         <mxCell id="lbl_br1" value="Branch 1: Global Semantic" style="text;html=1;align=center;fontSize=10;fontColor=#E65100;fontStyle=1;" parent="1" vertex="1">
           <mxGeometry x="920" y="73" width="160" height="18" as="geometry" />
