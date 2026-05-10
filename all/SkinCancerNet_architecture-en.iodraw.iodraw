@@ -280,7 +280,7 @@
         <mxCell id="8cifDf2JSR7yX3q1dD8H-38" value="Total Params: 2.53M  |  MobileNetV2: 2.26M  |  CNN Branch: 0.03M  |  Head: 0.18M" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#546E7A;fontSize=10;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
           <mxGeometry x="510" y="790" width="580" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="8cifDf2JSR7yX3q1dD8H-39" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Input&lt;/font&gt;" style="text;html=1;align=center;fontSize=9;fontColor=#1565C0;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
+        <mxCell id="8cifDf2JSR7yX3q1dD8H-39" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;输入&lt;/font&gt;" style="text;html=1;align=center;fontSize=9;fontColor=#1565C0;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
           <mxGeometry x="770" y="-30" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="8cifDf2JSR7yX3q1dD8H-40" value="" style="endArrow=none;html=1;strokeWidth=1;strokeColor=#1565C0;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="8cifDf2JSR7yX3q1dD8H-1" source="8cifDf2JSR7yX3q1dD8H-2" target="8cifDf2JSR7yX3q1dD8H-39">
