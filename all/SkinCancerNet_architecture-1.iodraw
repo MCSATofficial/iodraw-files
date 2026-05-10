@@ -8,7 +8,7 @@
           <mxGeometry x="715" y="30" width="170" height="55" as="geometry" />
         </mxCell>
         <mxCell id="box_mbv2" value="MobileNetV2&lt;br&gt;(ImageNet Pretrained)&lt;br&gt;alpha=1.0, include_top=False" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=12;fontStyle=1;" parent="1" vertex="1">
-          <mxGeometry x="1080" y="142" width="220" height="60" as="geometry" />
+          <mxGeometry x="1080" y="110" width="220" height="60" as="geometry" />
         </mxCell>
         <mxCell id="e1" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;" parent="1" source="box_input" target="box_mbv2" edge="1">
           <mxGeometry relative="1" as="geometry" />
