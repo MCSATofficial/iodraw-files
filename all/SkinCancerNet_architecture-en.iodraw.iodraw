@@ -269,7 +269,7 @@
           <mxGeometry x="680" y="540" width="240" height="220" as="geometry" />
         </mxCell>
         <mxCell id="8cifDf2JSR7yX3q1dD8H-35" value="&lt;font color=&quot;#b71c1c&quot;&gt;分类头&lt;/font&gt;" style="text;html=1;align=center;fontSize=10;fontColor=#F57F17;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
-          <mxGeometry x="800" y="515" width="120" height="18" as="geometry" />
+          <mxGeometry x="800" y="515" width="40" height="18" as="geometry" />
         </mxCell>
         <mxCell id="8cifDf2JSR7yX3q1dD8H-36" value="SkinCancerNet Model Architecture" style="text;html=1;align=center;fontSize=18;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
           <mxGeometry x="550" y="-90" width="500" height="30" as="geometry" />
@@ -277,7 +277,7 @@
         <mxCell id="8cifDf2JSR7yX3q1dD8H-37" value="Dual-Branch Asymmetric Feature Fusion with Spatial Attention" style="text;html=1;align=center;fontSize=11;fontColor=#666;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
           <mxGeometry x="600" y="-60" width="400" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="8cifDf2JSR7yX3q1dD8H-38" value="Total Params: 2.53M  |  MobileNetV2: 2.26M  |  CNN Branch: 0.03M  |  Head: 0.18M" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#546E7A;fontSize=10;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
+        <mxCell id="8cifDf2JSR7yX3q1dD8H-38" value="总参数量: 2.53M  |  MobileNetV2: 2.26M  |  CNN分支: 0.03M  |  分类头: 0.18M" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#546E7A;fontSize=10;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
           <mxGeometry x="510" y="790" width="580" height="32" as="geometry" />
         </mxCell>
         <mxCell id="8cifDf2JSR7yX3q1dD8H-39" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;输入&lt;/font&gt;" style="text;html=1;align=center;fontSize=9;fontColor=#1565C0;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
