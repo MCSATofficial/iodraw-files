@@ -29,7 +29,7 @@
         <mxCell id="box_gap1" value="GlobalAveragePooling2D&lt;br&gt;1280-dim Vector" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=11;fontStyle=1;" parent="1" vertex="1">
           <mxGeometry x="900" y="333" width="200" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="e3" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;" parent="1" source="box_att" target="box_gap1" edge="1">
+        <mxCell id="e3" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#E65100;" parent="1" source="box_att" target="box_gap1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="box_c1" value="Conv2D(32, 3x3)&lt;br&gt;BN + ReLU&lt;br&gt;MaxPool(2x2)&lt;br&gt;112x112x32" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;fontStyle=1;" parent="1" vertex="1">
