@@ -243,10 +243,10 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="8cifDf2JSR7yX3q1dD8H-27" value="良性 (p &amp;lt;= 0.5)" style="text;html=1;align=center;fontSize=10;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
-          <mxGeometry x="505" y="700" width="120" height="25" as="geometry" />
+          <mxGeometry x="505" y="697" width="120" height="25" as="geometry" />
         </mxCell>
         <mxCell id="8cifDf2JSR7yX3q1dD8H-28" value="恶性 (p &amp;gt; 0.5)" style="text;html=1;align=center;fontSize=10;fontColor=#C62828;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
-          <mxGeometry x="500" y="725" width="130" height="20" as="geometry" />
+          <mxGeometry x="500" y="722" width="130" height="20" as="geometry" />
         </mxCell>
         <mxCell id="8cifDf2JSR7yX3q1dD8H-29" value="" style="endArrow=open;html=1;strokeWidth=1;strokeColor=#999;dashed=1;exitX=0;exitY=0.5;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="8cifDf2JSR7yX3q1dD8H-1" source="8cifDf2JSR7yX3q1dD8H-25" target="8cifDf2JSR7yX3q1dD8H-27">
           <mxGeometry relative="1" as="geometry">
