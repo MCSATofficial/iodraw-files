@@ -1,0 +1,177 @@
+<mxfile host="app.iodraw.com" modified="2026-05-10T00:00:00.000Z" agent="iodraw" version="1.0" type="device">
+  <diagram id="SkinCancerNet" name="SkinCancerNet Architecture">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="box_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=13;arcSize=12;fontStyle=1;" value="Input Image&lt;br&gt;224x224x3" vertex="1">
+          <mxGeometry height="55" width="170" x="715" y="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_mbv2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=12;fontStyle=1;" value="MobileNetV2&lt;br&gt;(ImageNet Pretrained)&lt;br&gt;alpha=1.0, include_top=False" vertex="1">
+          <mxGeometry height="60" width="220" x="690" y="120" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e1" parent="1" source="box_input" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;" target="box_mbv2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="feat_label" parent="1" style="text;html=1;align=center;fontSize=9;fontColor=#888;" value="7x7x1280 Feature Map" vertex="1">
+          <mxGeometry height="18" width="140" x="730" y="182" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_att" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C62828;fontSize=10;fontStyle=1;dashed=1;" value="SpatialAttention&lt;br&gt;AvgPool + MaxPool on Channel&lt;br&gt;Conv2D(1, 7x7, Sigmoid)&lt;br&gt;Element-wise Multiply" vertex="1">
+          <mxGeometry height="75" width="240" x="680" y="210" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e2" parent="1" source="box_mbv2" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#C62828;" target="box_att" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_gap1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=11;fontStyle=1;" value="GlobalAveragePooling2D&lt;br&gt;1280-dim Vector" vertex="1">
+          <mxGeometry height="48" width="200" x="700" y="320" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e3" parent="1" source="box_att" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;" target="box_gap1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_c1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;fontStyle=1;" value="Conv2D(32, 3x3)&lt;br&gt;BN + ReLU&lt;br&gt;MaxPool(2x2)&lt;br&gt;112x112x32" vertex="1">
+          <mxGeometry height="72" width="155" x="60" y="140" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e4" parent="1" source="box_input" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#2E7D32;exitX=0;exitY=1;" target="box_c1" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="110" />
+              <mxPoint x="137" y="110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="box_c2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;fontStyle=1;" value="Conv2D(64, 3x3)&lt;br&gt;BN + ReLU&lt;br&gt;MaxPool(2x2)&lt;br&gt;56x56x64" vertex="1">
+          <mxGeometry height="72" width="155" x="60" y="242" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e5" parent="1" source="box_c1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#2E7D32;" target="box_c2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_c3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;fontStyle=1;" value="Conv2D(128, 3x3)&lt;br&gt;BN + ReLU&lt;br&gt;MaxPool(2x2)&lt;br&gt;28x28x128" vertex="1">
+          <mxGeometry height="72" width="155" x="60" y="344" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e6" parent="1" source="box_c2" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#2E7D32;" target="box_c3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_gap2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=11;fontStyle=1;" value="GlobalAveragePooling2D&lt;br&gt;128-dim Vector" vertex="1">
+          <mxGeometry height="48" width="200" x="37" y="446" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e7" parent="1" source="box_c3" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#2E7D32;" target="box_gap2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_concat" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#4527A0;fontSize=11;fontStyle=1;size=0.15;" value="Concatenate&lt;br&gt;1280 + 128 = 1408" vertex="1">
+          <mxGeometry height="65" width="210" x="695" y="450" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e8" parent="1" source="box_gap1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#E65100;" target="box_concat" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e9" parent="1" source="box_gap2" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#2E7D32;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="box_concat" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="470" />
+              <mxPoint x="400" y="482" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="box_d1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F57F17;fontSize=12;fontStyle=1;" value="Dense(128, ReLU)" vertex="1">
+          <mxGeometry height="40" width="160" x="720" y="555" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e10" parent="1" source="box_concat" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;" target="box_d1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_do" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F57F17;fontSize=11;fontStyle=1;dashed=1;" value="Dropout(0.3)" vertex="1">
+          <mxGeometry height="32" width="160" x="720" y="625" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e11" parent="1" source="box_d1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;" target="box_do" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#B71C1C;fontSize=12;fontStyle=1;arcSize=12;" value="Dense(1, Sigmoid)&lt;br&gt;Malignant Probability p in [0,1]" vertex="1">
+          <mxGeometry height="55" width="220" x="690" y="690" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e12" parent="1" source="box_do" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#B71C1C;" target="box_out" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="out_b" parent="1" style="text;html=1;align=center;fontSize=10;fontColor=#2E7D32;fontStyle=1;" value="Benign (p &lt;= 0.5)" vertex="1">
+          <mxGeometry height="18" width="120" x="500" y="695" as="geometry" />
+        </mxCell>
+
+        <mxCell id="out_m" parent="1" style="text;html=1;align=center;fontSize=10;fontColor=#C62828;fontStyle=1;" value="Malignant (p &gt; 0.5)" vertex="1">
+          <mxGeometry height="18" width="130" x="495" y="722" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e13" parent="1" source="box_out" style="endArrow=open;html=1;strokeWidth=1;strokeColor=#999;dashed=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="out_b" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rect_br1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#E65100;strokeWidth=2;dashed=1;opacity=30;" value="" vertex="1">
+          <mxGeometry height="210" width="280" x="660" y="105" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lbl_br1" parent="1" style="text;html=1;align=center;fontSize=10;fontColor=#E65100;fontStyle=1;" value="Branch 1: Global Semantic" vertex="1">
+          <mxGeometry height="18" width="160" x="720" y="107" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rect_br2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2E7D32;strokeWidth=2;dashed=1;opacity=30;" value="" vertex="1">
+          <mxGeometry height="370" width="200" x="35" y="125" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lbl_br2" parent="1" style="text;html=1;align=center;fontSize=10;fontColor=#2E7D32;fontStyle=1;" value="Branch 2: Local Texture" vertex="1">
+          <mxGeometry height="18" width="140" x="65" y="127" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rect_head" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#F57F17;strokeWidth=2;dashed=1;opacity=30;" value="" vertex="1">
+          <mxGeometry height="200" width="240" x="680" y="540" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lbl_head" parent="1" style="text;html=1;align=center;fontSize=10;fontColor=#F57F17;fontStyle=1;" value="Classifier Head" vertex="1">
+          <mxGeometry height="18" width="120" x="740" y="542" as="geometry" />
+        </mxCell>
+
+        <mxCell id="title" parent="1" style="text;html=1;align=center;fontSize=18;fontStyle=1;" value="SkinCancerNet Model Architecture" vertex="1">
+          <mxGeometry height="30" width="500" x="550" y="2" as="geometry" />
+        </mxCell>
+
+        <mxCell id="subtitle" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#666;" value="Dual-Branch Asymmetric Feature Fusion with Spatial Attention" vertex="1">
+          <mxGeometry height="18" width="400" x="600" y="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="params_box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#546E7A;fontSize=10;" value="Total Params: 2.53M  |  MobileNetV2: 2.26M  |  CNN Branch: 0.03M  |  Head: 0.18M" vertex="1">
+          <mxGeometry height="32" width="580" x="510" y="790" as="geometry" />
+        </mxCell>
+
+        <mxCell id="label_in" parent="1" style="text;html=1;align=center;fontSize=9;fontColor=#1565C0;fontStyle=1;" value="Input" vertex="1">
+          <mxGeometry height="14" width="60" x="770" y="16" as="geometry" />
+        </mxCell>
+
+        <mxCell edge="1" id="e14" parent="1" source="box_input" style="endArrow=none;html=1;strokeWidth=1;strokeColor=#1565C0;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" target="label_in" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
