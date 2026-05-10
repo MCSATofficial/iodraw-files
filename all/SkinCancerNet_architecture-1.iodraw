@@ -116,7 +116,7 @@
           <mxGeometry x="740" y="542" width="120" height="18" as="geometry" />
         </mxCell>
         <mxCell id="title" value="SkinCancerNet Model Architecture" style="text;html=1;align=center;fontSize=18;fontStyle=1;" parent="1" vertex="1">
-          <mxGeometry x="550" y="-40" width="500" height="30" as="geometry" />
+          <mxGeometry x="550" y="-48" width="500" height="30" as="geometry" />
         </mxCell>
         <mxCell id="subtitle" value="Dual-Branch Asymmetric Feature Fusion with Spatial Attention" style="text;html=1;align=center;fontSize=11;fontColor=#666;" parent="1" vertex="1">
           <mxGeometry x="600" y="-18" width="400" height="18" as="geometry" />
