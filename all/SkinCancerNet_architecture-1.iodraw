@@ -33,7 +33,9 @@
         </mxCell>
         <mxCell id="e4" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#2E7D32;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="box_input" target="box_c1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <Array as="points" />
+            <Array as="points">
+              <mxPoint x="600" y="58" />
+            </Array>
             <mxPoint x="480" y="10" as="targetPoint" />
           </mxGeometry>
         </mxCell>
