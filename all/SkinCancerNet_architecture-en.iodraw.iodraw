@@ -262,7 +262,7 @@
         <mxCell id="8cifDf2JSR7yX3q1dD8H-32" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2E7D32;strokeWidth=2;dashed=1;opacity=30;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
           <mxGeometry x="487.25" y="73" width="225.5" height="387" as="geometry" />
         </mxCell>
-        <mxCell id="8cifDf2JSR7yX3q1dD8H-33" value="Branch 2: Local Texture" style="text;html=1;align=center;fontSize=10;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
+        <mxCell id="8cifDf2JSR7yX3q1dD8H-33" value="分支二：局部纹理分支" style="text;html=1;align=center;fontSize=10;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
           <mxGeometry x="530.5" y="30" width="140" height="18" as="geometry" />
         </mxCell>
         <mxCell id="8cifDf2JSR7yX3q1dD8H-34" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#B71C1C;strokeWidth=2;dashed=1;opacity=30;" vertex="1" parent="8cifDf2JSR7yX3q1dD8H-1">
