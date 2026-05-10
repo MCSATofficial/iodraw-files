@@ -10,7 +10,7 @@
         <mxCell id="box_mbv2" value="MobileNetV2&lt;br&gt;(ImageNet Pretrained)&lt;br&gt;alpha=1.0, include_top=False" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=12;fontStyle=1;" parent="1" vertex="1">
           <mxGeometry x="1080" y="110" width="220" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="e1" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;exitX=0.792;exitY=0.995;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="box_input" target="box_mbv2" edge="1">
+        <mxCell id="e1" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#555;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="box_input" target="box_mbv2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="feat_label" value="7x7x1280 Feature Map" style="text;html=1;align=center;fontSize=9;fontColor=#888;" parent="1" vertex="1">
@@ -31,7 +31,7 @@
         <mxCell id="box_c1" value="Conv2D(32, 3x3)&lt;br&gt;BN + ReLU&lt;br&gt;MaxPool(2x2)&lt;br&gt;112x112x32" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;fontStyle=1;" parent="1" vertex="1">
           <mxGeometry x="60" y="140" width="155" height="72" as="geometry" />
         </mxCell>
-        <mxCell id="e4" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#2E7D32;exitX=0.214;exitY=1.009;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="box_input" target="box_c1" edge="1">
+        <mxCell id="e4" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#2E7D32;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="box_input" target="box_c1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="137" y="110" />
