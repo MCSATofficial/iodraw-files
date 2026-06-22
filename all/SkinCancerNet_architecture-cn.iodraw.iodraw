@@ -17,7 +17,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="feat_label" value="7x7x1280&lt;div&gt;Feature Map&lt;/div&gt;" style="text;html=1;align=center;fontSize=9;fontColor=#888;" parent="1" vertex="1">
+        <mxCell id="feat_label" value="6x6x1280&lt;div&gt;Feature Map&lt;/div&gt;" style="text;html=1;align=center;fontSize=9;fontColor=#888;" parent="1" vertex="1">
           <mxGeometry x="900" y="173" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="box_att" value="SpatialAttention&lt;br&gt;AvgPool + MaxPool on Channel&lt;br&gt;Conv2D(1, 7x7, Sigmoid)&lt;br&gt;Element-wise Multiply" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C62828;fontSize=10;fontStyle=1;dashed=1;" parent="1" vertex="1">
