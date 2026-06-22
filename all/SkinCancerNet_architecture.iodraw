@@ -1,0 +1,194 @@
+<mxfile host="iodraw" modified="2026-05-10T00:00:00.000Z" agent="iodraw" version="1.0">
+  <diagram name="SkinCancerNet Architecture" id="skin-cancer-net">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ===== 输入 ===== -->
+        <mxCell id="input" value="&lt;b&gt;输入图像&lt;/b&gt;&lt;br&gt;224×224×3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=12;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="680" y="40" width="160" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 分支1: MobileNetV2 ===== -->
+        <mxCell id="mobilenet" value="&lt;b&gt;MobileNetV2&lt;/b&gt;&lt;br&gt;(ImageNet 预训练)&lt;br&gt;α=1.0, include_top=False" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="140" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_in_mb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#555;" edge="1" parent="1" source="input" target="mobilenet">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 分支1: 中间特征图标注 -->
+        <mxCell id="feat_map" value="&lt;i&gt;7×7×1280 特征图&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="710" y="200" width="140" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- 分支1: SpatialAttention -->
+        <mxCell id="attention" value="&lt;b&gt;SpatialAttention&lt;/b&gt;&lt;br&gt;AvgPool ⊕ MaxPool&lt;br&gt;→ Conv2D(1,7×7,Sigmoid)&lt;br&gt;→ 空间加权" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C62828;fontSize=10;dashed=1;dashPattern=5 3;" vertex="1" parent="1">
+          <mxGeometry x="670" y="230" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_mb_att" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="mobilenet" target="attention">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 分支1: GAP -->
+        <mxCell id="gap1" value="&lt;b&gt;GlobalAveragePooling2D&lt;/b&gt;&lt;br&gt;→ 1280维特征向量" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="680" y="340" width="200" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_att_gap1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#555;" edge="1" parent="1" source="attention" target="gap1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 分支2: 轻量CNN ===== -->
+        <mxCell id="cnn_title" value="&lt;b&gt;局部纹理分支 (Lightweight CNN Branch)&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=12;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="260" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cnn_conv1" value="&lt;b&gt;Conv2D(32,3×3)&lt;/b&gt;&lt;br&gt;→ BN → ReLU&lt;br&gt;→ MaxPool(2×2)&lt;br&gt;&lt;i&gt;112×112×32&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="155" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_input_cnn" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#2E7D32;dashed=1;" edge="1" parent="1" source="input" target="cnn_conv1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="135" y="95" />
+              <mxPoint x="135" y="120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="cnn_conv2" value="&lt;b&gt;Conv2D(64,3×3)&lt;/b&gt;&lt;br&gt;→ BN → ReLU&lt;br&gt;→ MaxPool(2×2)&lt;br&gt;&lt;i&gt;56×56×64&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="255" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_cnn12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#2E7D32;" edge="1" parent="1" source="cnn_conv1" target="cnn_conv2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cnn_conv3" value="&lt;b&gt;Conv2D(128,3×3)&lt;/b&gt;&lt;br&gt;→ BN → ReLU&lt;br&gt;→ MaxPool(2×2)&lt;br&gt;&lt;i&gt;28×28×128&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="355" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_cnn23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#2E7D32;" edge="1" parent="1" source="cnn_conv2" target="cnn_conv3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="gap2" value="&lt;b&gt;GlobalAveragePooling2D&lt;/b&gt;&lt;br&gt;→ 128维特征向量" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="455" width="150" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_cnn3_gap2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#2E7D32;" edge="1" parent="1" source="cnn_conv3" target="gap2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 特征融合 ===== -->
+        <mxCell id="concat" value="&lt;b&gt;Concatenate 特征融合&lt;/b&gt;&lt;br&gt;1280 + 128 = &lt;font color=&quot;#C62828&quot;&gt;1408维&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#4527A0;fontSize=11;size=0.2;" vertex="1" parent="1">
+          <mxGeometry x="610" y="480" width="200" height="65" as="geometry" />
+        </mxCell>
+        <!-- 分支1 → 融合 -->
+        <mxCell id="arrow_gap1_concat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#E65100;" edge="1" parent="1" source="gap1" target="concat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 分支2 → 融合 -->
+        <mxCell id="arrow_gap2_concat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#2E7D32;" edge="1" parent="1" source="gap2" target="concat">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="478" />
+              <mxPoint x="400" y="512" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== 分类头 ===== -->
+        <mxCell id="dense1" value="&lt;b&gt;Dense(128, ReLU)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F57F17;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="635" y="590" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_concat_d1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#555;" edge="1" parent="1" source="concat" target="dense1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dropout" value="&lt;b&gt;Dropout(0.3)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F57F17;fontSize=11;dashed=1;dashPattern=2 2;" vertex="1" parent="1">
+          <mxGeometry x="635" y="660" width="150" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_d1_do" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#555;" edge="1" parent="1" source="dense1" target="dropout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="output" value="&lt;b&gt;Dense(1, Sigmoid)&lt;/b&gt;&lt;br&gt;→ 恶性概率 &lt;i&gt;p&lt;/i&gt; ∈ [0,1]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#B71C1C;fontSize=12;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="620" y="730" width="180" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_do_out" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#B71C1C;" edge="1" parent="1" source="dropout" target="output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 输出标签 -->
+        <mxCell id="out_benign" value="良性 (p ≤ 0.5)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="460" y="735" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="out_malignant" value="恶性 (p > 0.5)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="460" y="760" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_out_labels" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;strokeWidth=1;strokeColor=#999;dashed=1;dashPattern=3 3;" edge="1" parent="1" source="output" target="out_benign">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 标注区域: 分支1背景框 ===== -->
+        <mxCell id="box_branch1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#E65100;strokeWidth=2;dashed=1;dashPattern=8 4;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="650" y="110" width="260" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="label_branch1" value="&lt;b&gt;分支1：全局语义分支&lt;/b&gt;&lt;br&gt;(MobileNetV2 + SpatialAttention)" style="text;html=1;strokeColor=none;fillColor=#FFF3E0;align=center;verticalAlign=middle;fontSize=10;fontColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="655" y="115" width="190" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 标注区域: 分支2背景框 ===== -->
+        <mxCell id="box_branch2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2E7D32;strokeWidth=2;dashed=1;dashPattern=8 4;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="190" height="375" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 标注区域: 分类头背景框 ===== -->
+        <mxCell id="box_head" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#F57F17;strokeWidth=2;dashed=1;dashPattern=8 4;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="600" y="570" width="220" height="235" as="geometry" />
+        </mxCell>
+        <mxCell id="label_head" value="&lt;b&gt;分类头 (Classifier Head)&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=#FFF8E1;align=center;verticalAlign=middle;fontSize=10;fontColor=#F57F17;" vertex="1" parent="1">
+          <mxGeometry x="640" y="575" width="140" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ===== 标题 ===== -->
+        <mxCell id="title" value="&lt;b&gt;&lt;font size=&quot;6&quot;&gt;SkinCancerNet 模型架构图&lt;/font&gt;&lt;/b&gt;&lt;br&gt;双分支非对称特征融合 + 空间注意力机制" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="550" y="0" width="420" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- 参数量标注 -->
+        <mxCell id="params_note" value="&lt;b&gt;总参数量: 2.53M&lt;/b&gt;&lt;br&gt;MobileNetV2: 2.26M | CNN分支: 0.03M | 分类头: 0.18M" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#546E7A;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="600" y="840" width="220" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 图例 -->
+        <mxCell id="legend_title" value="&lt;b&gt;图例&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="840" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="840" width="20" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1_text" value="全局语义分支" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="135" y="838" width="80" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="840" width="20" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2_text" value="局部纹理分支" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="245" y="838" width="80" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C62828;fontSize=1;dashed=1;dashPattern=5 3;" vertex="1" parent="1">
+          <mxGeometry x="330" y="840" width="20" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3_text" value="空间注意力" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="355" y="838" width="65" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F57F17;fontSize=1;" vertex="1" parent="1">
+          <mxGeometry x="425" y="840" width="20" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4_text" value="分类头" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="450" y="838" width="50" height="16" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
